@@ -26,12 +26,16 @@ select distinct concat(c.last_name, ' ', c.first_name), sum(p.amount) over (part
 from payment p, rental r, customer c, inventory i
 where p.payment_date between  '2005-07-30 00:00:00' and '2005-07-30 23:59:59' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id
 ```
+![image](https://user-images.githubusercontent.com/121442297/233633687-ddb797ae-789b-4d2e-b53d-ae072ab2f87e.png)
+![image](https://user-images.githubusercontent.com/121442297/233633770-d802a234-77b1-4a0d-9860-4e8cdf6c5483.png)
 
 ```
 explain analyze
 select distinct concat(c.last_name, ' ', c.first_name), sum(p.amount) over (partition by c.customer_id)
 from payment p, rental r, customer c, inventory i
 where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id
+![image](https://user-images.githubusercontent.com/121442297/233634088-f2c1a240-0ba4-4700-ab4e-2cb2c69d2b71.png)
+
 ```
 # Дополнительные задания (со звёздочкой*)
 Эти задания дополнительные, то есть не обязательные к выполнению, и никак не повлияют на получение вами зачёта по этому домашнему заданию. Вы можете их выполнить, если хотите глубже шире разобраться в материале.
