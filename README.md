@@ -5,7 +5,9 @@
 select sum(t.INDEX_LENGTH) /  sum(t.DATA_LENGTH) *100 as 'Отношение'  
 from information_schema.TABLES t
 ```
-	/image1.png
+
+![image](https://user-images.githubusercontent.com/121442297/233633472-81244b4a-81ec-4cba-916f-8708d2c2a897.png)
+
 
 ## Задание 2
 Выполните explain analyze следующего запроса:
